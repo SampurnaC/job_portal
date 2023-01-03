@@ -1,8 +1,2 @@
 %h1 This is index page
-- @jobs.each do |job|
-    %h2= link_to job.title, job_path(job)
-    %p= job.description
-    %p= job.company
-    %p= job.url
-
-= link_to "New Job", new_job_path
+=render @jobs
