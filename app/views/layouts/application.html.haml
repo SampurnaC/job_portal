@@ -10,10 +10,16 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
 
-    %form.form-inline.my-2.my-lg-0{action: "/search"}
-      %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", name: "q", type: "text"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
 
-    -Category.all.each do |category|
-      = link_to category.name, jobs_path(category: category.name)
+
+    %nav.navbar.navbar-expand-sm.bg-light
+      %ul.navbar-nav
+      -Category.all.each do |category|
+        %li.nav-item
+          .nav-link
+            = link_to category.name, jobs_path(category: category.name)
+
+      %form.form-inline{action: "/search"}
+        %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", name: "q", type: "text"}/
+        %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
     = yield
