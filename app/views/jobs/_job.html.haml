@@ -1,10 +1,5 @@
-
-
 .container
     - @jobs.each do |job|
-
-            
-
         .card
             .card-body
                 %h2= link_to job.title, job_path(job)

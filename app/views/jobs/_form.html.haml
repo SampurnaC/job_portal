@@ -1,8 +1,12 @@
-= simple_form_for(@job, html: {class: 'form-horizontal'}) do |f|
-    = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"}
-    = f.input :title, label: "Job Title"
-    = f.rich_text_area :description, label: "Job Description"
-    = f.input :company, label: "Your Company"
-    = f.input :url, label: "Job Link to job"
-    %br
-    = f.button :submit
+.container
+    = simple_form_for(@job, html: {class: 'form-horizontal'}) do |f|
+        = f.label :category_id, 'Choose a Category'
+        = f.collection_select :category_id, Category.all, :id, :name
+        = f.input :title, label: "Job Title"
+        = f.rich_text_area :description, label: "Job Description"
+        = f.input :company, label: "Your Company"
+        = f.input :url, label: "Job Link to job"
+        %br
+        = f.button :submit, class: 'btn btn-primary'
+        = link_to "Back", root_path
+    
