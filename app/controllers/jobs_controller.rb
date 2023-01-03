@@ -44,6 +44,10 @@ class JobsController < ApplicationController
         redirect_to root_path
     end
 
+    def search
+        @jobs = Job.where("title LIKE ?","%" + params[:q]+"%")
+    end
+
     private
 
     def jobs_params
